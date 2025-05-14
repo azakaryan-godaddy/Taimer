@@ -1,6 +1,7 @@
 # Taimer - Multiple Timer Application
 
 A desktop application for managing multiple timers simultaneously, built with Electron by GitHub Copilot
+
 DISCLAIMER: This code was 100% written by AI. There is no guarantee this is good, safe, or even interesting to anyone but me.
 
 
