@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Taimer - Multiple Timer App</title>
+    <link rel="stylesheet" href="styles.css">
+    <meta name="color-scheme" content="light dark">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Taimer</h1>
+            <button id="addTimer" class="button">New Timer</button>
+        </header>
+        
+        <div id="timers" class="timers-container">
+            <!-- Timer elements will be added here dynamically -->
+        </div>
+    </div>
+
+    <!-- Timer template -->
+    <template id="timer-template">
+        <div class="timer">
+            <div class="timer-header">
+                <input type="text" class="timer-name" placeholder="Timer Name">
+                <button class="remove-timer">&times;</button>
+            </div>
+            <div class="timer-input">
+                <span class="unit-label">minutes</span>
+                <input type="number" class="minutes" min="0" max="999" value="0" placeholder="MM">
+                <span>:</span>
+                <input type="number" class="seconds" min="0" max="59" value="0" placeholder="SS">
+                <span class="unit-label">seconds</span>
+            </div>
+            <div class="quick-set">
+                <button class="quick-timer" data-minutes="1">1m</button>
+                <button class="quick-timer" data-minutes="5">5m</button>
+                <button class="quick-timer" data-minutes="10">10m</button>
+            </div>
+            <div class="time-display">00:00</div>
+            <div class="controls">
+                <button class="start">Start</button>
+                <button class="pause">Pause</button>
+                <button class="reset">Reset</button>
+                <button class="add-minute">+1m</button>
+            </div>
+            <div class="settings">
+                <label>
+                    <input type="checkbox" class="visual-notify" checked>
+                    Visual Alert
+                </label>
+            </div>
+        </div>
+    </template>
+
+    <script src="renderer.js"></script>
+</body>
+</html>

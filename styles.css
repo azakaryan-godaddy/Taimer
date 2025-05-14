@@ -1,0 +1,227 @@
+:root {
+    --primary-color: #2196F3;
+    --error-color: #f44336;
+    --success-color: #4CAF50;
+    --background-color: #ffffff;
+    --text-color: #333333;
+    --border-color: #dddddd;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: #1e1e1e;
+        --text-color: #ffffff;
+        --border-color: #404040;
+    }
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.button:hover {
+    opacity: 0.9;
+}
+
+.timers-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.timer {
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.timer.running {
+    border-color: var(--primary-color);
+}
+
+.timer.overtime {
+    border-color: var(--error-color);
+}
+
+.timer.complete {
+    animation: pulse 2s infinite;
+}
+
+.timer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.timer-name {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin-right: 10px;
+}
+
+.remove-timer {
+    background: none;
+    border: none;
+    color: var(--error-color);
+    font-size: 24px;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.remove-timer:hover {
+    background-color: rgba(244, 67, 54, 0.1);
+}
+
+.timer-input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.unit-label {
+    color: var(--text-color);
+    opacity: 0.7;
+}
+
+.timer-input input {
+    width: 60px;
+    padding: 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 20px;
+    text-align: center;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.time-display {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    margin: 20px 0;
+    font-family: monospace;
+    line-height: 1.2;
+}
+
+.timer.overtime .time-display {
+    color: var(--error-color);
+}
+
+.controls {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.controls button {
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: bold;
+}
+
+.controls .pause {
+    background-color: #ff9800;
+}
+
+.controls .reset {
+    background-color: #757575;
+}
+
+.settings {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.settings label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.quick-set {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.quick-timer {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.quick-timer:hover {
+    opacity: 1;
+}
+
+.quick-timer.disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+@keyframes pulse {
+    0% { 
+        box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.4);
+        background-color: var(--background-color);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(76, 175, 80, 0);
+        background-color: rgba(76, 175, 80, 0.1);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(76, 175, 80, 0);
+        background-color: var(--background-color);
+    }
+}
